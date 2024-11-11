@@ -1,0 +1,79 @@
+.profileWrapper{
+    border-radius: 50% !important;
+}
+
+.blurBackground {
+  background-size: cover;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+}
+
+.blurBackground:after{
+  content: '';
+  width: 103%;
+  height: 103%;
+  background: inherit;
+  position: absolute;
+  top: 0;
+  left: -10px;
+  filter: blur(50px)
+}
+
+.blurBackground img{
+    margin: auto;
+    z-index: 1;
+    border-left: rgb(122, 120, 120) 1px solid;
+    border-right: rgb(122, 120, 120) 1px solid;
+}
+
+  .post{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    gap: 20px;
+    box-shadow: rgba(2, 2, 2, 0.1) 0.5px 0.5px 1px 1px;
+    border-radius: 8px;
+    background-color: white;
+  }
+
+  .infoSection > div{
+    display: flex;
+    gap: 2%;
+  }
+
+  .infoSection{
+    padding:2%;
+  }
+
+  .reactionSection{
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  .reactionSection > div{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .lowestBar{
+    justify-self: center;
+    gap: 50%;
+  }
+
+  .lowestBar span{
+    display: flex;
+    gap: 5px
+  }
+
+  .lowestBar span:hover{
+    cursor: pointer;
+  }
+
+  @media(max-width: 1600px){
+    .post{
+      width: 1000px;
+    }
+  }

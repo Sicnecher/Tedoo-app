@@ -1,0 +1,47 @@
+.profileWrapper{
+    border-radius: 50%
+}
+
+.searchContainer{
+    background-color: rgb(242, 247, 247);
+    padding: 8px;
+    height: 20px;
+    border-radius: 18px;
+}
+
+.searchContainer input{
+    background-color: rgb(242, 247, 247);
+    outline: none;
+    border: none;
+}
+
+.searchContainer input:focus {
+    outline: none;
+    border: none; 
+}
+
+.barBody{
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    padding-right: 160px;
+    padding-left: 160px;
+    color: grey;
+}
+
+.barBody > section{
+    display: flex;
+    gap: 10%;
+    align-items: center;
+}
+
+.icons{
+    display: flex;
+    gap:2px;
+}
+
+.icons:hover{
+    cursor: pointer;
+    opacity: 0.6;
+}

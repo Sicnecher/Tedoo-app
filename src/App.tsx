@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import BarComponent from './components/upperBar/component'
+import PostComponent from './components/post/component'
+import style from './style.module.css'
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { useInView } from "react-intersection-observer";
 
-function App() {
+export default function App() {
+  const { ref, inView } = useInView();
+  const { data, error, status, fetchNextPage, hasNextPage } = useInfiniteQuery({
+    queryKey: ['posts'],
+    queryFn: async ({ pageParam = 0 }) => {
+      const response = await axios.get(`https://backend.tedooo.com/hw/feed.json?skip=${pageParam}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+      });
+      return response.data.data;
+    },
+    initialPageParam: 0,
+    getNextPageParam: (lastPage: any, _, lastPageParam: any) => {
+      console.log(lastPageParam)
+      return (
+        lastPage && lastPage.length > 0 ? lastPageParam + 6 : undefined
+      )
+    }
+  });
+
+  useEffect(() => {
+    console.log(inView)
+    if(inView && hasNextPage){
+      fetchNextPage();
+    }
+ }, [inView])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BarComponent />
+        {
+        status === 'pending' ? <div>Loading...</div> :
+          status === 'error' ? <div>{error.message}</div> :
+            <div className={style.postsContainer}>
+              <br />
+              {data.pages.map((paginationData: any) => paginationData.map((singlePostData: any) => <PostComponent postData={singlePostData}/>))}
+              <div ref={ref}></div>
+              <br />
+            </div>
+        }
     </div>
   );
 }
-
-export default App;
