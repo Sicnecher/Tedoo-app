@@ -35,7 +35,7 @@ export default function Component({postData} : {postData: PostModel}){
         <div ref={ref} data-user-id={postData.userId} data-shop-id={postData.shopId} className={style.post}>
              <section className={style.infoSection}>
                 <div>
-                    <img className={style.profileWrapper} src={postData.avatar} alt="image" width={50} height={50} />
+                    <img className={style.profileWrapper} src={postData.avatar} alt="image" width={40} />
                     <p><span>{postData.username}</span><br /><span style={{color: 'blue'}}>{postData.shopName}</span>{' • '}
                         {[
                             timeSincePosting.years && `${timeSincePosting.years}y`,
