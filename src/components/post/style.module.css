@@ -1,79 +1,111 @@
 .profileWrapper{
-    border-radius: 50% !important;
+  border-radius: 50%;
 }
 
 .blurBackground {
-  background-size: cover;
-  position: relative;
-  display: flex;
-  overflow: hidden;
+background-size: cover;
+position: relative;
+display: flex;
+overflow: hidden;
 }
 
 .blurBackground:after{
-  content: '';
-  width: 103%;
-  height: 103%;
-  background: inherit;
-  position: absolute;
-  top: 0;
-  left: -10px;
-  filter: blur(50px)
+content: '';
+width: 103%;
+height: 103%;
+background: inherit;
+position: absolute;
+top: 0;
+left: -10px;
+filter: blur(50px)
 }
 
 .blurBackground img{
-    margin: auto;
-    z-index: 1;
-    border-left: rgb(122, 120, 120) 1px solid;
-    border-right: rgb(122, 120, 120) 1px solid;
+  margin: auto;
+  z-index: 1;
+  width: 600px;
+  height: 500px;
+  border-left: rgb(122, 120, 120) 1px solid;
+  border-right: rgb(122, 120, 120) 1px solid;
 }
 
-  .post{
-    width: 500px;
-    display: flex;
-    flex-direction: column;
-    padding-top: 10px;
-    padding-bottom: 20px;
-    gap: 20px;
-    box-shadow: rgba(2, 2, 2, 0.1) 0.5px 0.5px 1px 1px;
-    border-radius: 8px;
-    background-color: white;
-  }
+.slider{
+  display: flex;
+  aspect-ratio: 16/9;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
 
-  .infoSection > div{
-    display: flex;
-    gap: 2%;
-  }
+.slider .blurBackground{
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+  object-fit: cover;
+}
 
-  .infoSection{
-    padding:2%;
-  }
+.sliderNav{
+  display: flex;
+  position: relative;
+  justify-content: center;
+  bottom: 2rem;
+  z-index: 1;
+  gap: 5px;
+}
 
-  .reactionSection{
-    padding-left: 2%;
-    padding-right: 2%;
-  }
+.sliderNav a {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.75;
+  transition: opacity ease 250ms;
+}
 
-  .reactionSection > div{
-    display: flex;
-    justify-content: space-between;
-  }
+.sliderNav a:hover{
+  opacity: 1;
+}
 
-  .lowestBar{
-    justify-self: center;
-    gap: 50%;
-  }
+.post{
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  gap: 20px;
+  box-shadow: rgba(2, 2, 2, 0.1) 0.5px 0.5px 1px 1px;
+  border-radius: 8px;
+  background-color: white;
+}
 
-  .lowestBar span{
-    display: flex;
-    gap: 5px
-  }
+.infoSection > div{
+  display: flex;
+  gap: 2%;
+}
 
-  .lowestBar span:hover{
-    cursor: pointer;
-  }
+.infoSection{
+  padding:2%;
+}
 
-  @media(max-width: 1600px){
-    .post{
-      width: 1000px;
-    }
-  }
+.reactionSection{
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.reactionSection > div{
+  display: flex;
+  justify-content: space-between;
+}
+
+.lowestBar{
+  justify-self: center;
+  gap: 50%;
+}
+
+.lowestBar span{
+  display: flex;
+  gap: 5px
+}
+
+.lowestBar span:hover{
+  cursor: pointer;
+}

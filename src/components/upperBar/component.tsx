@@ -1,6 +1,5 @@
 import style from './style.module.css'
 import profileImage from './../../static/github-profile.jpg'
-import { useEffect, useRef } from 'react'
 
 export default function Component(){
 
