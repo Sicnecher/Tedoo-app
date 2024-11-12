@@ -1,5 +1,5 @@
 # Before you start or run the build
-clone the repository and then run 'npm ci' to make sure all the npm packages are installed well.
+Clone the repository and then run 'npm ci' to make sure all the npm packages are installed well.
 
 
 # Getting Started with Create React App
