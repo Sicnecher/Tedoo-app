@@ -1,9 +1,7 @@
 # Project's explanation
 This is a simple social media UI project.\
-The code is written exclusively with React and includes interesting features like pagination and complex time calculation.\
-I was asked to write this code as a part of a company's recruitment process, but anybody can enjoy it.\
-Just remember to have fun😉.\
-
+The code is written exclusively with React and includes interesting features like pagination and complex time calculation🧐.\
+I was asked to write this code as a part of a company's recruitment process, but anybody can enjoy it😉.
 
 # Before you start or run the build
 Clone the repository and then run 'npm ci' to make sure all the npm packages are installed well.
